@@ -8,7 +8,7 @@ class TransportCompany:
         self.__typeOfFuel = typeOfFuel
         self.__list = []
 
-        TransportCompany.totalCount += 1
+
 
     @staticmethod
     def valid_number(number):
@@ -22,9 +22,9 @@ class TransportCompany:
             return True
         return False
 
-    @classmethod
-    def change_name_company(cls, newName):
-        cls.nameCompany = newName
+
+    def change_name_company(self, newName):
+        self.__nameCompany = newName
         return f"Назву компанії змінено на {newName}"
 
     @classmethod
@@ -49,6 +49,9 @@ class TransportCompany:
         else:
             return "Транспортний засіб з таким індексом не знайдено"
 
+    def get_info(self):
+        print(f"Назва компанії: {self.__nameCompany} номер: {self.__number}")
+
 company = TransportCompany("TransCity", "KX3274AI", 2.5, 150, "Diesel")
 
 
@@ -58,6 +61,8 @@ print(company.add_vehicle("Volvo"))
 print(company.add_vehicle("Toyota"))
 print(company.get_vehicle_info(0))
 print(company.get_vehicle_info(1))
+print(company.change_name_company("BigTrancCity"))
+company.get_info()
 
 print(TransportCompany.get_total_count())
 
